@@ -39,9 +39,9 @@ class Humidity extends Component {
         
         return ( 
             <Card>
-                <CardContent>
+                <CardContent style={{backgroundColor: 'grey'}}>
                     <Grid>
-                        <Grid item>
+                        <Grid item style={{backgroundColor: 'grey'}}>
                         <Typography
               className="fontWeight: 700"
               color="textSecondary"
@@ -52,7 +52,7 @@ class Humidity extends Component {
             </Typography>
             <Typography variant="h3">39</Typography>
                         </Grid>
-                        <Grid item>
+                        <Grid item style={{backgroundColor: 'grey'}}>
             <Avatar className="backgroundColor: theme.palette.error.main, height: 56, width: 56" src={humidity} alt="%">
             </Avatar>
           </Grid>

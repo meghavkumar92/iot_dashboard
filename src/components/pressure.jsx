@@ -61,9 +61,9 @@ class Pressure extends Component {
         
         return ( 
             <Card>
-                <CardContent>
+                <CardContent style={{backgroundColor: 'grey'}}>
                     <Grid>
-                        <Grid item>
+                        <Grid item style={{backgroundColor: 'grey'}}>
                         <Typography
               className="fontWeight: 700"
               color="textSecondary"
@@ -76,7 +76,7 @@ class Pressure extends Component {
             <Typography variant="h3">{this.state.pressure_cur}</Typography>
             {/* <p> {new Date().getUTCHours().toString()}:{new Date().getUTCMinutes().toString()}:{new Date().getUTCSeconds().toString()} </p> */}
                         </Grid>
-                        <Grid item>
+                        <Grid item style={{backgroundColor: 'grey'}}>
             <Avatar className="backgroundColor: theme.palette.error.main, height:100, width: 100" src={pressure} alt="%"> 
             </Avatar>
           </Grid>
