@@ -1,8 +1,6 @@
 
 
-## Quick start
-
-Quick start options:
+Quick start command
 
 
 - Clone the repo: 
