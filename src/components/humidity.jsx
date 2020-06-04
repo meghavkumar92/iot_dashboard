@@ -34,7 +34,13 @@ class Humidity extends Component {
           marginRight: theme.spacing(1)
         }
       })); */
-    
+    componentDidMount(){
+      const updateHumidity = () =>{
+        //this.setState({counter:this.state.counter})
+        console.log("updateHumidity function is called.")
+      }
+      this._interval = window.setInterval(updateHumidity,10000)
+    }
     render() { 
         
         return ( 
