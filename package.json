@@ -1,7 +1,7 @@
 {
-  "name": "material-dashboard-react",
+  "name": "iot-dashboard",
   "version": "1.8.0",
-  "description": "Material Dashboard React. Coded by Creative Tim",
+  "description": "IOT Dashboard React.",
   "private": false,
   "main": "dist/index.js",
   "dependencies": {
@@ -35,15 +35,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/creativetimofficial/material-dashboard-react.git"
+    "url": "git+https://github.com/meghavkumar92/iot_dashboard.git"
   },
   "keywords": [],
-  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
-  "license": "MIT",
+  "author": "Megha",
+  "license": "HSRW",
   "bugs": {
-    "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"
+    "url": "https://github.com/meghavkumar92/iot_dashboard.git/issues"
   },
-  "homepage": "https://creativetimofficial.github.io/material-dashboard-react/#/dashboard",
+  "homepage": "https://github.com/meghavkumar92/iot_dashboard.git/#/dashboard",
   "optionalDependencies": {
     "@types/googlemaps": "3.37.3",
     "@types/markerclustererplus": "2.1.33",
