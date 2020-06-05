@@ -8,7 +8,11 @@ import celsius from './images/celsius.png';
 
 
 class Temperature extends Component {
-    
+  constructor(props){
+    super(props);
+    console.log(props);
+    //this.state = {counter: this.props.counter};
+  }
       useStyles = makeStyles(theme => ({
         root: {
           height: '50%'
@@ -50,12 +54,12 @@ class Temperature extends Component {
             >
               Temperature
             </Typography>
-            <Typography variant="h3">10</Typography>
+        <Typography variant="h3">{this.props.data.temperature}</Typography>
                         </Grid>
                         <Grid item style={{backgroundColor: 'grey'}}>
             <Avatar className="backgroundColor: theme.palette.error.main, height: 80, width: 80" src={celsius} alt="degree Celsius">
                {/* <MoneyIcon className=" height: 32, width: 32" /> */} 
-               
+               {this.props.data.unit}
             </Avatar>
           </Grid>
 
