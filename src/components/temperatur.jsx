@@ -50,7 +50,7 @@ class Temperature extends Component {
             >
               Temperature
             </Typography>
-            <Typography variant="h3">{this.props.greeting}</Typography>
+            <Typography variant="h3">10</Typography>
                         </Grid>
                         <Grid item style={{backgroundColor: 'grey'}}>
             <Avatar className="backgroundColor: theme.palette.error.main, height: 80, width: 80" src={celsius} alt="degree Celsius">
