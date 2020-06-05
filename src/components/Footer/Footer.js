@@ -51,7 +51,7 @@ export default function Footer(props) {
             >
               
             </a> */}
-            <img src={iot_logo} alt="iot logo" width="30" height="30" ></img>
+            {/* <img src={iot_logo} alt="iot logo" width="30" height="30" ></img> */}
             IOT Project , Hochschule Rhein-Waal University
           </span>
         </p>
