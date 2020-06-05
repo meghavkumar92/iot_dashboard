@@ -6,7 +6,9 @@ import { makeStyles } from '@material-ui/styles';
 
 import humidity from './images/humidity.jpg';
 
-
+import axios from 'axios';
+const serverUrl = 'http://192.168.56.1:5000';
+const http = axios.create({baseUrl: serverUrl,})
 
 class Humidity extends Component {
     
@@ -34,15 +36,32 @@ class Humidity extends Component {
           marginRight: theme.spacing(1)
         }
       })); */
-    componentDidMount(){
-      const updateHumidity = () =>{
-        //this.setState({counter:this.state.counter})
-        console.log("updateHumidity function is called.")
+      constructor(props){
+        super(props);
+        this.state = {counter:1};
       }
-      this._interval = window.setInterval(updateHumidity,10000)
+    componentDidMount(){
+      const getHumidity = () =>{        
+        console.log("updateHumidity function is called.")
+        const {counter} = this.state;
+        console.log(counter)
+        const info = {"counter":counter}
+        axios.post(serverUrl,info).then((response) => this.updateHumidityState(response.data))
+        .catch((err) => console.log(err))
+            }
+     // this._interval = window.setInterval(getHumidity,10000)
+    }
+
+    updateHumidityState(data){
+      console.log(data)
+      this.setState({counter: data.counter})
+      console.log(data.temp.temperature)
+      console.log(data.pres.pressure)
+      console.log(data.humd.unit)
+      console.log(data.modi.created)
     }
     render() { 
-        
+        const {counter} = this.state;
         return ( 
             <Card>
                 <CardContent style={{backgroundColor: 'grey'}}>
@@ -56,7 +75,7 @@ class Humidity extends Component {
             >
               Humidity
             </Typography>
-            <Typography variant="h3">39</Typography>
+            <Typography variant="h3">{this.state.counter}</Typography>
                         </Grid>
                         <Grid item style={{backgroundColor: 'grey'}}>
             <Avatar className="backgroundColor: theme.palette.error.main, height: 56, width: 56" src={humidity} alt="%">
