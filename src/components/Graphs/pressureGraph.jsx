@@ -5,7 +5,10 @@ import lo from 'lodash';
 //var Chart = require('chart.js');
 
 import axios from 'axios';
-const serverUrl = 'http://192.168.56.1:5000/pressure';
+//const serverUrl1 = 'http://8d2155d10c56.ngrok.io/pressureData/last24hours';
+//const serverUrl2 = 'http://8d2155d10c56.ngrok.io/pressureData/lastweek';
+//const serverUrl = 'http://192.168.56.1:5000/pressure';
+var serverUrl = null;
 const http = axios.create({baseUrl: serverUrl,})
 
 const styles = {
@@ -31,8 +34,8 @@ const myChartData = (labs,dats) => {
         label: "Graph for Pressure data recorded",
         fill: false,
         lineTension: 0.1,
-        backgroundColor: "rgba(255,255,255,0.4)",
-        borderColor: "rgba(255,255,255,1)",
+        backgroundColor: "rgba(60,179,113,0.4)",
+        borderColor: "rgba(60,179,113,1)",
         borderCapStyle: "butt",
         borderDash: [],
         borderDashOffset: 0.0,
@@ -96,7 +99,7 @@ const myChartData = (labs,dats) => {
       
       
      
-      getPressure(){
+      getPressure(arg){
       const updateGraph = (resData) => {
           console.log(resData);
           const {counter, labels, data} = this.state;
@@ -119,16 +122,26 @@ const myChartData = (labs,dats) => {
         }
         //API request to fetch data
         const info = {"pressure":"pressure"};
+        if(arg === "Week"){
+          console.log(arg === "Week");
+          serverUrl = 'http://192.168.56.1:5000/pressure';
+        }else{
+          serverUrl = 'http://192.168.56.1:5000/pressure';
+        }
+        console.log(serverUrl);
         axios.post(serverUrl,info).then((response) => updateGraph(response.data))
         .catch((err) => console.log(err))
-      }  
+      } 
+      
+       
       
       render() { 
         
           return ( 
             <div /* style={styles} */>
-                <div> <canvas id="bar_l1_chart" width="400" height="300"></canvas> </div>
-                <button onClick={this.getPressure}>Graph</button>
+                <div> <canvas id="bar_l1_chart" width="400" height="300" ></canvas> </div>
+               <div> <button onClick={this.getPressure.bind(this, "Week")}>Week Graph</button></div>
+               <div> <button onClick={this.getPressure.bind(this, "Last")}>Last 24hrs Graph</button></div>
             </div>
            );
       }
