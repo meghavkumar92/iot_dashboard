@@ -57,7 +57,7 @@ const dashboardRoutes = [
   {
     path: "/table",
     name: "Members and Products ",
-    rtlName: "قائمة الجدول",
+    //rtlName: "قائمة الجدول",
     //icon: "content_paste",
     icon: Person,
     component: TableList,

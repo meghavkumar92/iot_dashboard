@@ -5,6 +5,7 @@ import lo from 'lodash';
 //var Chart = require('chart.js');
 
 import axios from 'axios';
+import Button from "components/CustomButtons/Button.js";
 //const serverUrl1 = 'http://8d2155d10c56.ngrok.io/pressureData/last24hours';
 //const serverUrl2 = 'http://8d2155d10c56.ngrok.io/pressureData/lastweek';
 //const serverUrl = 'http://192.168.56.1:5000/pressure';
@@ -47,7 +48,7 @@ const myChartData = (labs,dats) => {
         pointHoverBackgroundColor: "rgba(75,192,192,1)",
         pointHoverBorderColor: "rgba(220,220,220,1)",
         pointHoverBorderWidth: 2,
-        pointRadius: 0,
+        pointRadius: 5,
         pointHitRadius: 10,
         data: dats,
         
@@ -140,8 +141,11 @@ const myChartData = (labs,dats) => {
           return ( 
             <div /* style={styles} */>
                 <div> <canvas id="bar_l1_chart" width="400" height="300" ></canvas> </div>
-               <div> <button onClick={this.getPressure.bind(this, "Week")}>Week Graph</button></div>
-               <div> <button onClick={this.getPressure.bind(this, "Last")}>Last 24hrs Graph</button></div>
+               {/* <div> <button onClick={this.getPressure.bind(this, "Week")}>Week Graph</button></div>
+               <div> <button onClick={this.getPressure.bind(this, "Last")}>Last 24hrs Graph</button></div> */}
+               <div> <Button  onClick={this.getPressure.bind(this, "Week")}>Last Week Graph</Button>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <Button onClick={this.getPressure.bind(this, "Last")}>Last 24hrs Graph</Button></div>
             </div>
            );
       }
