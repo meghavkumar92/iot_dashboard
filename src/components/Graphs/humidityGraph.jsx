@@ -139,9 +139,9 @@ const myChartData = (labs,dats) => {
                 <div> <canvas id="bar_l3_chart" width="400" height="300"></canvas> </div>
                 {/* <div> <button onClick={this.getHumidity.bind(this, "Week")}>Week Graph</button></div>
                <div> <button onClick={this.getHumidity.bind(this, "Last")}>Last 24hrs Graph</button></div> */}
-                <div> <Button  onClick={this.getHumidity.bind(this, "Week")}>Last Week Graph</Button>
+                <div> <Button className= "pull-left" onClick={this.getHumidity.bind(this, "Week")}>Last Week Graph</Button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <Button onClick={this.getHumidity.bind(this, "Last")}>Last 24hrs Graph</Button></div>
+               <Button className= "pull-right" onClick={this.getHumidity.bind(this, "Last")}>Last 24hrs Graph</Button></div>
             </div>
            );
       }
