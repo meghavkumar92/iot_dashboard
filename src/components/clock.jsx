@@ -3,33 +3,25 @@ import { Card, CardContent, Grid, Typography,Avatar} from '@material-ui/core';
 
 class Clock extends Component {
     constructor(props) {
-        super(props);
-        this.state = {
-          time: new Date().toLocaleTimeString()
-        };
+        super(props);      
       }
-      componentDidMount() {
-        this.intervalID = setInterval( () => this.tick(),1000 );
-      }
-      componentWillUnmount() {
-        clearInterval(this.intervalID);
-      }
-      tick() {
-        this.setState({
-          time: new Date().toLocaleTimeString()
-        });
-      }
+      
     render() { 
         return ( 
             <Card>
-            <CardContent>
+            <CardContent style={{backgroundColor: 'grey'}}>
                 <Grid>
-                    <Grid item>
-                    <Typography className="fontWeight: 700" color="textSecondary" gutterBottom variant="body2">
-                      Current Time
+                    <Grid item style={{backgroundColor: 'grey'}}>
+                    <Typography className="fontWeight: 700" color="textSecondary" gutterBottom variant="body2" style={{fontWeight:500}}>
+                      Last Updated
                     </Typography>
-                    <Typography variant="h4"> {this.state.time}  </Typography>
+                    <Typography variant="h4"> {this.props.data.modifiedTime}  </Typography>
                     </Grid>
+                    <Grid item style={{backgroundColor: 'grey'}}>
+            {/* <Avatar className="backgroundColor: theme.palette.error.main, height:100, width: 100" src={} alt="%"> 
+            </Avatar> */}
+         
+          </Grid>
                 </Grid>
 
             </CardContent>

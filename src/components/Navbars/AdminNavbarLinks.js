@@ -21,7 +21,7 @@ import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-dashboard-react/components/headerLinksStyle.js";
 
-import hsrw_logo from "components/images/hsrw.png";
+//import hsrw_logo from "components/images/hsrw.png";
 
 
 const useStyles = makeStyles(styles);
@@ -53,7 +53,7 @@ export default function AdminNavbarLinks() {
   return (
     <div>
       <div className={classes.linkText} >
-      <img src={hsrw_logo} alt="HSRW" width="300" height="80"></img></div>
+      {/* <img src={hsrw_logo} alt="HSRW" width="300" height="80"></img>*/}</div> 
      {/*  <div className={classes.searchWrapper}>
         <CustomInput
           formControlProps={{

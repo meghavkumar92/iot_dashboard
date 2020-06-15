@@ -42,7 +42,7 @@ export default function Footer(props) {
           </List>
         </div> */}
         <p className={classes.right}>
-          <span>
+          <span class="footer-img">
             {/* &copy; {1900 + new Date().getYear()}{" "} */}
             {/* <a
               href="https://www.creative-tim.com?ref=mdr-footer"
@@ -51,9 +51,9 @@ export default function Footer(props) {
             >
               
             </a> */}
-            <img src={iot_logo} alt="iot logo" width="30" height="30" ></img>
-            IOT Project , Hochschule Rhein-Waal University
+            <img src={iot_logo} alt="iot logo"></img>
           </span>
+          <span class="footer-text">IOT Project , Hochschule Rhein-Waal University &copy; {1900 + new Date().getYear()}{" "}</span>
         </p>
       </div>
     </footer>

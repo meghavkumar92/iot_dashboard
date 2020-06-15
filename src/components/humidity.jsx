@@ -34,7 +34,30 @@ class Humidity extends Component {
           marginRight: theme.spacing(1)
         }
       })); */
-    
+      constructor(props){
+        super(props);
+        //this.state = {counter:1};
+      }
+    /* componentDidMount(){
+      const getHumidity = () =>{        
+        console.log("updateHumidity function is called.")
+        const {counter} = this.state;
+        console.log(counter)
+        const info = {"counter":counter}
+        axios.post(serverUrl,info).then((response) => this.updateHumidityState(response.data))
+        .catch((err) => console.log(err))
+            }
+      this._interval = window.setInterval(getHumidity,10000)
+    } */
+/* 
+    updateHumidityState(data){
+      console.log(data)
+      this.setState({counter: data.counter})
+      console.log(data.temp.temperature)
+      console.log(data.pres.pressure)
+      console.log(data.humd.unit)
+      console.log(data.modi.created)
+    } */
     render() { 
         
         return ( 
@@ -47,13 +70,14 @@ class Humidity extends Component {
               color="textSecondary"
               gutterBottom
               variant="body2"
+              style={{fontWeight:500}}
             >
               Humidity
             </Typography>
-            <Typography variant="h3">39</Typography>
+            <Typography variant="h3">{this.props.data.humidity}</Typography>
                         </Grid>
                         <Grid item style={{backgroundColor: 'grey'}}>
-            <Avatar className="backgroundColor: theme.palette.error.main, height: 56, width: 56" src={humidity} alt="%">
+            <Avatar className="backgroundColor: theme.palette.error.main, height: 100, width: 100" src={humidity} alt="%">
             </Avatar>
           </Grid>
 

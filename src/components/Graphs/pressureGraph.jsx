@@ -4,6 +4,14 @@ import Chart from 'chart.js';
 import lo from 'lodash';
 //var Chart = require('chart.js');
 
+import axios from 'axios';
+import Button from "components/CustomButtons/Button.js";
+//const serverUrl1 = 'http://8d2155d10c56.ngrok.io/pressureData/last24hours';
+//const serverUrl2 = 'http://8d2155d10c56.ngrok.io/pressureData/lastweek';
+//const serverUrl = 'http://192.168.56.1:5000/pressure';
+var serverUrl = null;
+const http = axios.create({baseUrl: serverUrl,})
+
 const styles = {
     fontFamily: 'sans-serif',
     textAlign: 'center',
@@ -27,8 +35,8 @@ const myChartData = (labs,dats) => {
         label: "Graph for Pressure data recorded",
         fill: false,
         lineTension: 0.1,
-        backgroundColor: "rgba(255,255,255,0.4)",
-        borderColor: "rgba(255,255,255,1)",
+        backgroundColor: "rgba(60,179,113,0.4)",
+        borderColor: "rgba(60,179,113,1)",
         borderCapStyle: "butt",
         borderDash: [],
         borderDashOffset: 0.0,
@@ -40,7 +48,7 @@ const myChartData = (labs,dats) => {
         pointHoverBackgroundColor: "rgba(75,192,192,1)",
         pointHoverBorderColor: "rgba(220,220,220,1)",
         pointHoverBorderWidth: 2,
-        pointRadius: 0,
+        pointRadius: 5,
         pointHitRadius: 10,
         data: dats,
         
@@ -58,6 +66,7 @@ const myChartData = (labs,dats) => {
         super(props);
         this.state = {counter:5, labels:  myLabs, data: myDats};
         this.chartRef = null;
+        this.getPressure = this.getPressure.bind(this);
       }
       
       createChart = (labels, data) => {
@@ -69,11 +78,17 @@ const myChartData = (labs,dats) => {
                 data: myChartData(labels,data),
             });
           this.chartRef = lineChart;
-          console.log(this.chartRef.data.labels);
+          //console.log(this.chartRef.data.labels);
         }  
       };
 
+      componentDidMount(){
+        this.createChart(this.state.labels,this.state.data)
+      }
+
+
       updateChart = (labels, data) => {
+        console.log("updateChart method");
         //console.log(this.chartRef.data);
         this.chartRef.data.labels = labels; //lo.takeRight(labels,5);
         //console.log(this.chartRef.data.datasets[0]);
@@ -82,40 +97,55 @@ const myChartData = (labs,dats) => {
         this.chartRef.update();
       };
 
-      componentDidMount() {
-          const updatePressure = () => {
-          this.setState({counter:this.state.counter+1});
+      
+      
+     
+      getPressure(arg){
+      const updateGraph = (resData) => {
+          console.log(resData);
           const {counter, labels, data} = this.state;
-          const str = "Day" + `${counter}`;
-          labels.push(str);
-          data.push(lo.round(100*Math.random()));
-          const new_dats = this.state.data;
-          const new_labs = this.state.labels;
-          this.setState({data: lo.takeRight(new_dats,5)});
-          this.setState({labels: lo.takeRight(new_labs,5)})
-          this.updateChart(this.state.labels, this.state.data);
-      };
-        //updatePressure();
-        this.createChart(this.state.labels,this.state.data);
-       // this._interval = window.setInterval(updatePressure, 10000); // <- Five seconds. One hour would be 3600000 ms
-      }
-
-      componentWillUnmount() {
-        this._interval && window.clearInterval(this._interval);
-      }
-        
+          const labellist = [];
+          const datalist = [];
+          Object.keys(resData).map((key, i) => {
+            console.log("inside updateGraph");            
+           // console.log(resData[key].fetcheddata.createdTime); 
+           // console.log(resData[key].fetcheddata.value);
+           const larr = resData[key].fetcheddata.createdTime;
+           const darr = resData[key].fetcheddata.value;
+           labellist.push(larr);
+           datalist.push(darr);
+           console.log(data);          
+          }) 
+          this.setState({data: datalist});
+          this.setState({labels:labellist});  
+          this.updateChart(this.state.labels,this.state.data);
+          console.log("updategraph method")
+        }
+        //API request to fetch data
+        const info = {"pressure":"pressure"};
+        if(arg === "Week"){
+          console.log(arg === "Week");
+          serverUrl = 'http://192.168.56.1:5000/pressure';
+        }else{
+          serverUrl = 'http://192.168.56.1:5000/pressure';
+        }
+        console.log(serverUrl);
+        axios.post(serverUrl,info).then((response) => updateGraph(response.data))
+        .catch((err) => console.log(err))
+      } 
+      
+       
+      
       render() { 
-        //data.labels = this.state.labels;
-        //data.data = this.state.data;
-        //this.addData(this.chartRef,"DayNew",this.state.counter);
-        //<Line ref={this.chartReference} data={myChartData(myLabs,myDats)} />
-        //<p>{this.state.counter}</p>
-        //<p>{this.state.labels}</p>
-        //<p>{this.state.data}</p>
+        
           return ( 
             <div /* style={styles} */>
-                <div> <canvas id="bar_l1_chart" width="400" height="300"></canvas> </div>
-                
+                <div> <canvas id="bar_l1_chart" width="400" height="300" ></canvas> </div>
+               {/* <div> <button onClick={this.getPressure.bind(this, "Week")}>Week Graph</button></div>
+               <div> <button onClick={this.getPressure.bind(this, "Last")}>Last 24hrs Graph</button></div> */}
+               <div> <Button className= "pull-left" onClick={this.getPressure.bind(this, "Week")}>Last Week Graph</Button>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <Button className= "pull-right" onClick={this.getPressure.bind(this, "Last")}>Last 24hrs Graph</Button></div>
             </div>
            );
       }

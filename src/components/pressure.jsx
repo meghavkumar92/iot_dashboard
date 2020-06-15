@@ -11,9 +11,9 @@ import pressure from './images/pressure.png';
 class Pressure extends Component {
   constructor(props) {
     super(props);
-    this.state = {pressure_cur: 10, pressure_prev: [10]};
+    //this.state = {pressure_cur: 10, pressure_prev: [10]};
   }
-
+/* 
   componentDidMount() {
     const getQuotes = () => {
       const {pressure_cur, pressure_prev} = this.state;
@@ -30,7 +30,7 @@ class Pressure extends Component {
 
   componentWillUnmount() {
     this._interval && window.clearInterval(this._interval);
-  }
+  } */
     
      useStyles = makeStyles(theme => ({
         root: {
@@ -73,7 +73,7 @@ class Pressure extends Component {
             >
               Pressure
             </Typography>
-            <Typography variant="h3">{this.state.pressure_cur}</Typography>
+            <Typography variant="h3">{this.props.data.pressure}</Typography>
             {/* <p> {new Date().getUTCHours().toString()}:{new Date().getUTCMinutes().toString()}:{new Date().getUTCSeconds().toString()} </p> */}
                         </Grid>
                         <Grid item style={{backgroundColor: 'grey'}}>
