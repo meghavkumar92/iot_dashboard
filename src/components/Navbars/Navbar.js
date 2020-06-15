@@ -41,7 +41,7 @@ export default function Header(props) {
           {/* Here we create navbar brand, based on route name */}
           <Button color="transparent" href="#" className={classes.title}>
            {/*  {makeBrand()}  */}  
-           <p>Live monitoring of Humidity, Temperature, and Pressure using Raspberry Pi</p>  
+           <h4>Live monitoring of Humidity, Temperature, and Pressure using Raspberry Pi</h4>  
           </Button>
           
         </div>

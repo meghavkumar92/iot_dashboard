@@ -143,9 +143,9 @@ const myChartData = (labs,dats) => {
                 <div> <canvas id="bar_l1_chart" width="400" height="300" ></canvas> </div>
                {/* <div> <button onClick={this.getPressure.bind(this, "Week")}>Week Graph</button></div>
                <div> <button onClick={this.getPressure.bind(this, "Last")}>Last 24hrs Graph</button></div> */}
-               <div> <Button className= "pull-left" onClick={this.getPressure.bind(this, "Week")}>Last Week Graph</Button>
+               <div> <Button className= "pull-left Buttonfont" onClick={this.getPressure.bind(this, "Week")}>Last Week Graph</Button>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <Button className= "pull-right" onClick={this.getPressure.bind(this, "Last")}>Last 24hrs Graph</Button></div>
+               <Button className= "pull-right Buttonfont" onClick={this.getPressure.bind(this, "Last")}>Last 24hrs Graph</Button></div>
             </div>
            );
       }

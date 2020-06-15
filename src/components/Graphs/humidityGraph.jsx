@@ -102,7 +102,7 @@ const myChartData = (labs,dats) => {
               console.log("inside updateGraph");            
              // console.log(resData[key].fetcheddata.createdTime); 
              // console.log(resData[key].fetcheddata.value);
-             const larr = resData[key].fetcheddata.createdTime;
+             const larr = resData[key].fetcheddata.createdtime;
              const darr = resData[key].fetcheddata.value;
              labellist.push(larr);
              datalist.push(darr);
@@ -119,10 +119,10 @@ const myChartData = (labs,dats) => {
             console.log(arg === "Week");
             serverUrl = 'http://192.168.56.1:5000/pressure';
           }else{
-            serverUrl = 'http://192.168.56.1:5000/pressure';
+            serverUrl = 'http://dcf152b7e326.ngrok.io/humidityData/last24hours';
           }
           console.log(serverUrl);
-          axios.post(serverUrl,info).then((response) => updateGraph(response.data))
+          axios.get(serverUrl/* ,info */).then((response) => updateGraph(response.data))
           .catch((err) => console.log(err))
         }
 
@@ -139,9 +139,9 @@ const myChartData = (labs,dats) => {
                 <div> <canvas id="bar_l3_chart" width="400" height="300"></canvas> </div>
                 {/* <div> <button onClick={this.getHumidity.bind(this, "Week")}>Week Graph</button></div>
                <div> <button onClick={this.getHumidity.bind(this, "Last")}>Last 24hrs Graph</button></div> */}
-                <div> <Button className= "pull-left" onClick={this.getHumidity.bind(this, "Week")}>Last Week Graph</Button>
+                <div> <Button className= "pull-left Buttonfont" onClick={this.getHumidity.bind(this, "Week")}>Last Week Graph</Button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <Button className= "pull-right" onClick={this.getHumidity.bind(this, "Last")}>Last 24hrs Graph</Button></div>
+               <Button className= "pull-right Buttonfont" onClick={this.getHumidity.bind(this, "Last")}>Last 24hrs Graph</Button></div>
             </div>
            );
       }

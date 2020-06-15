@@ -51,7 +51,7 @@ export default function Footer(props) {
             >
               
             </a> */}
-            <img src={iot_logo} alt="iot logo"></img>
+           {/*  <img src={iot_logo} alt="iot logo"></img> */}
           </span>
           <span class="footer-text">IOT Project , Hochschule Rhein-Waal University &copy; {1900 + new Date().getYear()}{" "}</span>
         </p>

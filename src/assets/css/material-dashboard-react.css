@@ -515,7 +515,7 @@ footer ul li a:hover {
 
 body {
   background-color: #fff;
-  background-image: url('../img/lightning.gif');
+  background-image: url('../img/passingcloud.gif');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -555,6 +555,7 @@ body {
 .footer-text {
   font-weight: 500;
   padding-left: 10px;
+  color: #fff;
 }
 .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:hover {
   transform: scale(1.1);
@@ -565,23 +566,23 @@ body {
 }
 /* temperature color */
 .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:nth-child(1) .MuiCardContent-root, .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:nth-child(1) .MuiCardContent-root .MuiGrid-root.MuiGrid-item {
-  background-color: yellow !important;
+  background-color: rgb(69, 182, 112) !important;
 }
 /* pressure color */
 .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:nth-child(2) .MuiCardContent-root, .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:nth-child(2) .MuiCardContent-root .MuiGrid-root.MuiGrid-item {
-  background-color: rgb(69, 182, 112) !important;
+  background-color: rgb(255, 165, 0) !important;
 }
 /* humidity color */
 .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:nth-child(3) .MuiCardContent-root, .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:nth-child(3) .MuiCardContent-root .MuiGrid-root.MuiGrid-item {
-  background-color: rgb(16, 223, 212) !important;
+  background-color: rgb(221, 25, 42) !important;
 }
 /* time color */
 .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:last-child .MuiCardContent-root, .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:last-child .MuiCardContent-root .MuiGrid-root.MuiGrid-item {
-  background-color: rgb(226, 135, 211) !important;
+  background-color: rgb(120, 120, 120) !important;
 }
 /* Button color */
 button.MuiButtonBase-root.MuiButton-root.makeStyles-button-54.MuiButton-text {
-  background-color: yellow;
+  background-color: #fff;
   color: #000;
 }
 
@@ -602,4 +603,11 @@ button.MuiButtonBase-root.MuiButton-root.makeStyles-button-54.MuiButton-text {
 }
 .MuiButton-label {
   font-weight: 500;
+  color: rgb(255, 255, 255);  
+}
+.Buttonfont .MuiButton-label{
+  color: #000;
+}
+.makeStyles-footer-115{
+  border-top-width: 4px !important;
 }
