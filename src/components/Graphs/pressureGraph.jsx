@@ -6,9 +6,8 @@ import lo from 'lodash';
 
 import axios from 'axios';
 import Button from "components/CustomButtons/Button.js";
-//const serverUrl1 = 'http://8d2155d10c56.ngrok.io/pressureData/last24hours';
-//const serverUrl2 = 'http://8d2155d10c56.ngrok.io/pressureData/lastweek';
-//const serverUrl = 'http://192.168.56.1:5000/pressure';
+
+import {PRESSURE_WEEK, PRESSURE_LAST24} from "components/Constant/constants.jsx";
 var serverUrl = null;
 const http = axios.create({baseUrl: serverUrl,})
 
@@ -25,9 +24,7 @@ const myDats = [4.5, 5.0, 6.0, 3.1, 5.6];
 
 
 const myChartData = (labs,dats) => {
-    //const ctx = canvas.getContext("2d")
-    //const gradient = ctx.createLinearGradient(0,0,100,0);
-    //console.log(this.chartReference);
+    
     return{
     labels: labs,
     datasets: [
@@ -108,8 +105,7 @@ const myChartData = (labs,dats) => {
           const datalist = [];
           Object.keys(resData).map((key, i) => {
             console.log("inside updateGraph");            
-           // console.log(resData[key].fetcheddata.createdTime); 
-           // console.log(resData[key].fetcheddata.value);
+           // console.log(resData[key].fetcheddata.createdTime);            
            const larr = resData[key].fetcheddata.createdTime;
            const darr = resData[key].fetcheddata.value;
            labellist.push(larr);
@@ -125,9 +121,9 @@ const myChartData = (labs,dats) => {
         const info = {"pressure":"pressure"};
         if(arg === "Week"){
           console.log(arg === "Week");
-          serverUrl = 'http://192.168.56.1:5000/pressure';
+          serverUrl = PRESSURE_WEEK;
         }else{
-          serverUrl = 'http://192.168.56.1:5000/pressure';
+          serverUrl = PRESSURE_LAST24;
         }
         console.log(serverUrl);
         axios.post(serverUrl,info).then((response) => updateGraph(response.data))
@@ -140,11 +136,8 @@ const myChartData = (labs,dats) => {
         
           return ( 
             <div /* style={styles} */>
-                <div> <canvas id="bar_l1_chart" width="400" height="300" ></canvas> </div>
-               {/* <div> <button onClick={this.getPressure.bind(this, "Week")}>Week Graph</button></div>
-               <div> <button onClick={this.getPressure.bind(this, "Last")}>Last 24hrs Graph</button></div> */}
-               <div> <Button className= "pull-left Buttonfont" onClick={this.getPressure.bind(this, "Week")}>Last Week Graph</Button>
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div> <canvas id="bar_l1_chart" width="400" height="300" ></canvas> </div>               
+               <div> <Button className= "pull-left Buttonfont" onClick={this.getPressure.bind(this, "Week")}>Last Week Graph</Button>               
                <Button className= "pull-right Buttonfont" onClick={this.getPressure.bind(this, "Last")}>Last 24hrs Graph</Button></div>
             </div>
            );

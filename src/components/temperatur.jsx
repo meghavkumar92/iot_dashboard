@@ -5,38 +5,12 @@ import { makeStyles } from '@material-ui/styles';
 import celsius from './images/celsius.png';
 //import dashboard from './dashboard.css';
 
-
-
 class Temperature extends Component {
   constructor(props){
     super(props);
-    console.log(props);
+    // console.log(props);
     //this.state = {counter: this.props.counter};
   }
-      useStyles = makeStyles(theme => ({
-        root: {
-          height: '50%'
-        },
-        content: {
-          alignItems: 'center',
-          display: 'flex'
-        },
-        title: {
-          fontWeight: 700
-        },    
-        difference: {
-          marginTop: theme.spacing(2),
-          display: 'flex',
-          alignItems: 'center'
-        },
-        differenceIcon: {
-          color: theme.palette.error.dark
-        },
-        differenceValue: {
-          color: theme.palette.error.dark,
-          marginRight: theme.spacing(1)
-        }
-      })); 
     
     render() { 
         
@@ -58,7 +32,6 @@ class Temperature extends Component {
                         </Grid>
                         <Grid item style={{backgroundColor: 'grey'}}>
             <Avatar className="backgroundColor: theme.palette.error.main, height: 80, width: 80" src={celsius} alt="degree Celsius">
-               {/* <MoneyIcon className=" height: 32, width: 32" /> */} 
                {this.props.data.unit}
             </Avatar>
           </Grid>

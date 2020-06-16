@@ -6,8 +6,10 @@ import lo from 'lodash';
 import axios from 'axios';
 import Button from "components/CustomButtons/Button.js";
 
+import {TEMPERATURE_WEEK, TEMPERATURE_LAST24} from "components/Constant/constants.jsx";
 var serverUrl = null;
 const http = axios.create({baseUrl: serverUrl,});
+
 Chart.defaults.global.defaultFontColor='black';
 
 const styles = {
@@ -76,7 +78,7 @@ const myChartData = (labs,dats) => {
               
             });
           this.chartRef = lineChart;
-          console.log(this.chartRef.data.labels);
+          //console.log(this.chartRef.data.labels);
         }  
       };
 
@@ -105,24 +107,23 @@ const myChartData = (labs,dats) => {
             Object.keys(resData).map((key, i) => {
              //console.log("inside updateGraph");            
              //console.log(resData[key].fetcheddata.createdTime);              
-             const larr = resData[key].fetcheddata.createdTime;
+             const larr = resData[key].fetcheddata.createdtime;
              const darr = resData[key].fetcheddata.value;
              labellist.push(larr);
              datalist.push(darr);
-             console.log(data);          
+             //console.log(data);          
             }) 
             this.setState({data: datalist});
             this.setState({labels:labellist});  
-            this.updateChart(this.state.labels,this.state.data);
-            //console.log("updategraph method")
+            this.updateChart(this.state.labels,this.state.data);            
           }
           //API request to fetch data
           const info = {"pressure":"pressure"};
           if(arg === "Week"){
             console.log(arg === "Week");
-            serverUrl = 'http://192.168.56.1:5000/pressure';
+            serverUrl = TEMPERATURE_WEEK;
           }else{
-            serverUrl = 'http://192.168.56.1:5000/pressure';
+            serverUrl = TEMPERATURE_LAST24;
           }
           console.log(serverUrl);
           axios.post(serverUrl,info).then((response) => updateGraph(response.data))
@@ -133,11 +134,8 @@ const myChartData = (labs,dats) => {
        
           return ( 
             <div /* style={styles} */>
-                <div> <canvas id="bar_l2_chart" width="500" height="300"></canvas> </div>
-               {/*  <div> <button variant="outlined" color="secondary"    onClick={this.getTemperature.bind(this, "Week")}>Last Week Graph</button></div>
-               <div> <button onClick={this.getTemperature.bind(this, "Last")}>Last 24hrs Graph</button></div> */}
-              <div> <Button className= "pull-left Buttonfont" onClick={this.getTemperature.bind(this, "Week")}>Last Week Graph</Button>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div> <canvas id="bar_l2_chart" width="500" height="300"></canvas> </div>               
+              <div> <Button className= "pull-left Buttonfont" onClick={this.getTemperature.bind(this, "Week")}>Last Week Graph</Button>              
                <Button  className= "pull-right Buttonfont" onClick={this.getTemperature.bind(this, "Last")}>Last 24hrs Graph</Button></div>
 
             </div>

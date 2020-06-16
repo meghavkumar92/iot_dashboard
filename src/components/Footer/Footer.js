@@ -16,44 +16,11 @@ export default function Footer(props) {
   const classes = useStyles();
   return (
     <footer className={classes.footer}>
-      <div className={classes.container}>
-        {/* <div className={classes.left}>
-          <List className={classes.list}>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#home" className={classes.block}>
-                Home
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#company" className={classes.block}>
-                Company
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#portfolio" className={classes.block}>
-                Portfolio
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#blog" className={classes.block}>
-                Blog
-              </a>
-            </ListItem>
-          </List>
-        </div> */}
+      <div className={classes.container}>        
         <p className={classes.right}>
-          <span class="footer-img">
-            {/* &copy; {1900 + new Date().getYear()}{" "} */}
-            {/* <a
-              href="https://www.creative-tim.com?ref=mdr-footer"
-              target="_blank"
-              className={classes.a}
-            >
-              
-            </a> */}
-           {/*  <img src={iot_logo} alt="iot logo"></img> */}
+          <span className="footer-img">            
           </span>
-          <span class="footer-text">IOT Project , Hochschule Rhein-Waal University &copy; {1900 + new Date().getYear()}{" "}</span>
+          <span className="footer-text">IOT Project , Hochschule Rhein-Waal University &copy; {1900 + new Date().getYear()}{" "}</span>
         </p>
       </div>
     </footer>

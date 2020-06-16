@@ -6,6 +6,8 @@ import lo from 'lodash';
 
 import axios from 'axios';
 import Button from "components/CustomButtons/Button.js";
+
+import {HUMIDITY_WEEK, HUMIDITY_LAST24} from "components/Constant/constants.jsx";
 var serverUrl = null;
 const http = axios.create({baseUrl: serverUrl,});
 
@@ -22,9 +24,7 @@ const myDats = [4.5, 5.0, 6.0, 3.1, 5.6];
 
 
 const myChartData = (labs,dats) => {
-    //const ctx = canvas.getContext("2d")
-    //const gradient = ctx.createLinearGradient(0,0,100,0);
-    //console.log(this.chartReference);
+    
     return{
     labels: labs,
     datasets: [
@@ -75,7 +75,7 @@ const myChartData = (labs,dats) => {
                 data: myChartData(labels,data),
             });
           this.chartRef = lineChart;
-          console.log(this.chartRef.data.labels);
+          //console.log(this.chartRef.data.labels);
         }  
       };
 
@@ -99,9 +99,8 @@ const myChartData = (labs,dats) => {
             const labellist = [];
             const datalist = [];
             Object.keys(resData).map((key, i) => {
-              console.log("inside updateGraph");            
+              //console.log("inside updateGraph");            
              // console.log(resData[key].fetcheddata.createdTime); 
-             // console.log(resData[key].fetcheddata.value);
              const larr = resData[key].fetcheddata.createdtime;
              const darr = resData[key].fetcheddata.value;
              labellist.push(larr);
@@ -117,30 +116,21 @@ const myChartData = (labs,dats) => {
           const info = {"pressure":"pressure"};
           if(arg === "Week"){
             console.log(arg === "Week");
-            serverUrl = 'http://192.168.56.1:5000/pressure';
+            serverUrl = HUMIDITY_WEEK;
           }else{
-            serverUrl = 'http://dcf152b7e326.ngrok.io/humidityData/last24hours';
+            serverUrl = HUMIDITY_LAST24;
           }
           console.log(serverUrl);
-          axios.get(serverUrl/* ,info */).then((response) => updateGraph(response.data))
+          axios.post(serverUrl ,info ).then((response) => updateGraph(response.data))
           .catch((err) => console.log(err))
         }
 
       render() { 
-        //data.labels = this.state.labels;
-        //data.data = this.state.data;
-        //this.addData(this.chartRef,"DayNew",this.state.counter);
-        //<Line ref={this.chartReference} data={myChartData(myLabs,myDats)} />
-        //<p>{this.state.counter}</p>
-        //<p>{this.state.labels}</p>
-        //<p>{this.state.data}</p>
+        
           return ( 
             <div /* style={styles} */>
                 <div> <canvas id="bar_l3_chart" width="400" height="300"></canvas> </div>
-                {/* <div> <button onClick={this.getHumidity.bind(this, "Week")}>Week Graph</button></div>
-               <div> <button onClick={this.getHumidity.bind(this, "Last")}>Last 24hrs Graph</button></div> */}
-                <div> <Button className= "pull-left Buttonfont" onClick={this.getHumidity.bind(this, "Week")}>Last Week Graph</Button>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div> <Button className= "pull-left Buttonfont" onClick={this.getHumidity.bind(this, "Week")}>Last Week Graph</Button>                
                <Button className= "pull-right Buttonfont" onClick={this.getHumidity.bind(this, "Last")}>Last 24hrs Graph</Button></div>
             </div>
            );

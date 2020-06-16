@@ -39,15 +39,10 @@ import PressureGraph from "components/Graphs/pressureGraph.jsx";
 import HumidityGraph from "components/Graphs/humidityGraph.jsx";
 import { bugs, website, server } from "variables/general.js";
 
-import {
-  dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart
-} from "variables/charts.js";
-
 import axios from 'axios';
-const serverUrl = 'http://192.168.56.1:5000/';
-//const serverUrl = 'http://21855faededc.ngrok.io/fetchLiveWeather';
+import {FETCH_LIVEDATA_URL} from "components/Constant/constants.jsx";
+
+const serverUrl = FETCH_LIVEDATA_URL;
 const http = axios.create({baseUrl: serverUrl,})
 
 
@@ -56,36 +51,34 @@ class FetchData extends Component {
     constructor(props){
         super(props);
         this.state = {counter:10, temperature: 35 , pressure: 999, humidity: 99, modifiedTime: "15/06/2020 00:51:59"};
-        console.log("inside constructor");
+        //console.log("inside constructor");
       }
 
       componentDidMount(){
         const getLiveData = () =>{        
           console.log("GetLiveData function is called.")
           const {counter} = this.state;
-          console.log(counter);
+          //console.log(counter);
           const info = {"counter":counter}
           axios.post(serverUrl,info).then((response) => this.updateState(response.data))
           .catch((err) => console.log(err))
               }
-       // this._interval = window.setInterval(getLiveData,5000)
+        this._interval = window.setInterval(getLiveData,5000)
       }
   
       updateState(resdata){
-        console.log(resdata)
+       // console.log(resdata)
         this.setState({counter: resdata.counter})
         this.setState({temperature: resdata.temperature.value})        
         this.setState({pressure:resdata.pressure.value})
         this.setState({humidity:resdata.humidity.value})
-        //this.setState({modifiedTime:resdata.createdTime})
-        this.setState({modifiedTime:resdata.createdTime.value})
-        //console.log(resdata.createdTime);    
+        this.setState({modifiedTime:resdata.createdTime.value})            
       }
 
     render() { 
 
         const data = this.state;
-        console.log(data);       
+        //console.log(data);       
         return (  <div> <GridContainer>
             <GridItem xs={12} sm={6} md={3}>
               <Temperature data = {data} />
