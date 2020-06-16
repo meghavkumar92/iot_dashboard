@@ -17,9 +17,7 @@ class Clock extends Component {
                     </Typography>
                     <Typography variant="h4"> {this.props.data.modifiedTime}  </Typography>
                     </Grid>
-                    <Grid item style={{backgroundColor: 'grey'}}>
-            {/* <Avatar className="backgroundColor: theme.palette.error.main, height:100, width: 100" src={} alt="%"> 
-            </Avatar> */}
+                    <Grid item style={{backgroundColor: 'grey'}}>          
          
           </Grid>
                 </Grid>
