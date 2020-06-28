@@ -19,7 +19,7 @@ const styles = {
     height: 100    
   };
 
-const myLabs = ["Day1", "Day2", "Day3", "Day4", "Day5"];
+const myLabs = ["2020-Jul-03 19:00:59", "2020-Jul-03 19:02:10", "2020-Jul-03 19:02:19", "2020-Jul-03 19:07:18", "2020-Jul-03 19:07:41"];
 const myDats = [4.5, 5.0, 6.0, 3.1, 5.6];
 
 
@@ -121,7 +121,7 @@ const myChartData = (labs,dats) => {
             serverUrl = HUMIDITY_LAST24;
           }
           console.log(serverUrl);
-          axios.post(serverUrl ,info ).then((response) => updateGraph(response.data))
+          axios.get(serverUrl).then((response) => updateGraph(response.data))
           .catch((err) => console.log(err))
         }
 

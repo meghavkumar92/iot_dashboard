@@ -59,11 +59,11 @@ export default function TableList() {
               tableHeaderColor="primary"
               tableHead={["Name", "Matriculation Number", "Email"]}
               tableData={[
+                ["Komal-Kalpesh Saraiya", "28408", "Komal-Kalpesh.Saraiya@hsrw.org"],
                 ["Megha Vijayakumar", "28393", "Megha.Vijayakumar@hsrw.org"],
-                ["Megha Vijayakumar", "28393", "Megha.Vijayakumar@hsrw.org"],
-                ["Megha Vijayakumar", "28393", "Megha.Vijayakumar@hsrw.org"],
-                ["Megha Vijayakumar", "28393", "Megha.Vijayakumar@hsrw.org"],
-                ["Megha Vijayakumar", "28393", "Megha.Vijayakumar@hsrw.org"]
+                ["Nandini Anand", "27841", "Nandini-Anand.-@hsrw.org"],
+                ["Nikhilesh Munthala", "28383", "Nikhilesh.Munthala@hsrw.org"],
+                ["Thirumal Janakiraman", "28364", "Thirumal.Janakiraman@hsrw.org"]
               ]}
             />
           </CardBody>
@@ -85,8 +85,10 @@ export default function TableList() {
                 ["Raspberry Pi", ""],
                 ["Raspberry Sense Hat", ""],
                 ["MQTT", ""],
-                ["Python", ""],
                 ["React", ""],
+                ["Python", ""],
+                ["Postgre", ""],
+                ["SQLite", ""],
                 ["Docker", ""]
               ]}
             />

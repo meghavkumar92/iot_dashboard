@@ -50,7 +50,7 @@ class FetchData extends Component {
   
     constructor(props){
         super(props);
-        this.state = {counter:10, temperature: 35 , pressure: 999, humidity: 99, modifiedTime: "15/06/2020 00:51:59"};
+        this.state = {counter:10, temperature: 35 , pressure: 999, humidity: 99, modifiedTime: "03/07/2020 00:51:59"};
         //console.log("inside constructor");
       }
 

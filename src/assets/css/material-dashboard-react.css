@@ -552,15 +552,15 @@ body {
 }
 /* temperature color */
 .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:nth-child(1) .MuiCardContent-root, .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:nth-child(1) .MuiCardContent-root .MuiGrid-root.MuiGrid-item {
-  background-color: rgb(69, 182, 112) !important;
+  background-color: rgb(120, 120, 120) !important;
 }
 /* pressure color */
 .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:nth-child(2) .MuiCardContent-root, .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:nth-child(2) .MuiCardContent-root .MuiGrid-root.MuiGrid-item {
-  background-color: rgb(255, 165, 0) !important;
+  background-color: rgb(120, 120, 120) !important;
 }
 /* humidity color */
 .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:nth-child(3) .MuiCardContent-root, .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:nth-child(3) .MuiCardContent-root .MuiGrid-root.MuiGrid-item {
-  background-color: rgb(221, 25, 42) !important;
+  background-color: rgb(120, 120, 120) !important;
 }
 /* time color */
 .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:last-child .MuiCardContent-root, .MuiGrid-root.makeStyles-grid-94.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-3:last-child .MuiCardContent-root .MuiGrid-root.MuiGrid-item {

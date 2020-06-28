@@ -43,12 +43,20 @@ export default function UserProfile() {
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
           <Card>
-            <CardHeader color="primary">
+            <CardHeader color="rose">
               <h4 className={classes.cardTitleWhite}>Abstract</h4>
-              <p className={classes.cardCategoryWhite}>Complete details</p>
+              <p className={classes.cardCategoryWhite}></p>
             </CardHeader>
             <CardBody>
               <p>IoT based Project aims to show the current Humidity, Temperature and Pressure parameters on the Internet server using Raspberry Pi.</p>
+              <p>This project is based on IoT and it functions as a weather monitoring station. It measures humidity, pressure and temperature of the environment. 
+We are using  Rasberry Pi 3 along with sense hat to measure the temperature, pressure and humidity. MQTT an IOT application is used to establish an publisher-subscriber network protocol to capture the live data from the hardware and publish the data as message queues. 
+We are using Flask python server and two different database postgres and SQLite as part of the backend and the client application is a react application.
+We are using microservice architecture in this project to interact with various components. 
+The message queues  from the MQTT broker can be subscribed by a backend microservice to fetch the live data and update the database.
+We have a live data microservice which routes the data subscribed from MQTT broker to the react application.
+We have different microservices to fetch the weekly and last 24hrs data from the database to plot the graph for temperature, pressure and humidity in the react application.
+The client application dashboard is developed to display the live monitoring of weather forecast and a graphical view of the last24hours and weekly data of temperature, pressure and humidity. The server configuration for this project is done in docker containers along with web configurations.</p>
               {/* <GridContainer>
                 <GridItem xs={12} sm={12} md={5}>
                   <CustomInput
