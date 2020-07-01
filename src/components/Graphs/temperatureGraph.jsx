@@ -107,7 +107,7 @@ const myChartData = (labs,dats) => {
             Object.keys(resData).map((key, i) => {
              //console.log("inside updateGraph");            
              //console.log(resData[key].fetcheddata.createdTime);              
-             const larr = resData[key].fetcheddata.createdtime;
+             const larr = resData[key].fetcheddata.createdTime;
              const darr = resData[key].fetcheddata.value;
              labellist.push(larr);
              datalist.push(darr);
