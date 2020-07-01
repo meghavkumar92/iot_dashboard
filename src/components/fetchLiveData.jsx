@@ -72,7 +72,7 @@ class FetchData extends Component {
         this.setState({temperature: resdata.temperature.value})        
         this.setState({pressure:resdata.pressure.value})
         this.setState({humidity:resdata.humidity.value})
-        this.setState({modifiedTime:resdata.createdTime.value})            
+        this.setState({modifiedTime:resdata.createdTime})            
       }
 
     render() { 
