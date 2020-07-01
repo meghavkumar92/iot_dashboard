@@ -60,7 +60,7 @@ class FetchData extends Component {
           const {counter} = this.state;
           //console.log(counter);
           const info = {"counter":counter}
-          axios.post(serverUrl,info).then((response) => this.updateState(response.data))
+          axios.get(serverUrl).then((response) => this.updateState(response.data))
           .catch((err) => console.log(err))
               }
         this._interval = window.setInterval(getLiveData,5000)
