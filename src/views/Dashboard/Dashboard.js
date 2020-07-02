@@ -43,8 +43,8 @@ import {
   completedTasksChart
 } from "variables/charts.js";
 
-import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
-import FetchData from "components/fetchLiveData.jsx"
+import styles from "../../assets/jss/material-dashboard-react/views/dashboardStyle.js";
+import FetchData from "../../components/fetchLiveData.jsx"
 const useStyles = makeStyles(styles);
 
 

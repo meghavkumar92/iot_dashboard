@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Card, CardContent, Grid, Typography,Avatar} from '@material-ui/core';
+import React, { Component } from "react";
+import { Card, CardContent, Grid, Typography, Avatar } from "@material-ui/core";
 
 class Clock extends Component {
     constructor(props) {

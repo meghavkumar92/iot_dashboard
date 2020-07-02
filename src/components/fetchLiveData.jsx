@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
@@ -18,41 +18,46 @@ import BugReport from "@material-ui/icons/BugReport";
 import Code from "@material-ui/icons/Code";
 import Cloud from "@material-ui/icons/Cloud";
 // core components
-import GridItem from "components/Grid/GridItem.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import Table from "components/Table/Table.js";
-import Tasks from "components/Tasks/Tasks.js";
-import CustomTabs from "components/CustomTabs/CustomTabs.js";
-import Danger from "components/Typography/Danger.js";
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardIcon from "components/Card/CardIcon.js";
-import CardBody from "components/Card/CardBody.js";
-import CardFooter from "components/Card/CardFooter.js";
+import GridItem from "./Grid/GridItem.js";
+import GridContainer from "./Grid/GridContainer.js";
+import Table from "./Table/Table.js";
+import Tasks from "./Tasks/Tasks.js";
+import CustomTabs from "./CustomTabs/CustomTabs.js";
+import Danger from "./Typography/Danger.js";
+import Card from "./Card/Card.js";
+import CardHeader from "./Card/CardHeader.js";
+import CardIcon from "./Card/CardIcon.js";
+import CardBody from "./Card/CardBody.js";
+import CardFooter from "./Card/CardFooter.js";
 
-import Temperature from "components/temperatur.jsx";
-import Pressure from "components/pressure.jsx";
-import Humidity from "components/humidity.jsx";
-import Clock from "components/clock.jsx";
-import TempGraph from "components/Graphs/temperatureGraph.jsx";
-import PressureGraph from "components/Graphs/pressureGraph.jsx";
-import HumidityGraph from "components/Graphs/humidityGraph.jsx";
-import { bugs, website, server } from "variables/general.js";
+import Temperature from "./temperatur.jsx";
+import Pressure from "./pressure.jsx";
+import Humidity from "./humidity.jsx";
+import Clock from "./clock.jsx";
+import TempGraph from "./Graphs/temperatureGraph.jsx";
+import PressureGraph from "./Graphs/pressureGraph.jsx";
+import HumidityGraph from "./Graphs/humidityGraph.jsx";
+// import { bugs, website, server } from "./variables/general.js";
 
-import axios from 'axios';
-import {FETCH_LIVEDATA_URL} from "components/Constant/constants.jsx";
+import axios from "axios";
+import { FETCH_LIVEDATA_URL } from "./Constant/constants.jsx";
 
 const serverUrl = FETCH_LIVEDATA_URL;
 const http = axios.create({baseUrl: serverUrl,})
 
 
 class FetchData extends Component {
-  
-    constructor(props){
-        super(props);
-        this.state = {counter:10, temperature: 35 , pressure: 999, humidity: 99, modifiedTime: "03/07/2020 00:51:59"};
-        //console.log("inside constructor");
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 10,
+      temperature: "fetching...",
+      pressure: "fetching...",
+      humidity: "fetching...",
+      modifiedTime: "fetching...",
+    };
+    //console.log("inside constructor");
+  }
 
       componentDidMount(){
         const getLiveData = () =>{        

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Card, CardContent, Grid, Typography,Avatar} from '@material-ui/core';
+import React, { Component } from "react";
+import { Card, CardContent, Grid, Typography, Avatar } from "@material-ui/core";
 //import MoneyIcon from '@material-ui/icons/Money';
-import { makeStyles } from '@material-ui/styles';
-import celsius from './images/celsius.png';
+import { makeStyles } from "@material-ui/styles";
+import celsius from "./images/celsius.png";
 //import dashboard from './dashboard.css';
 
 class Temperature extends Component {

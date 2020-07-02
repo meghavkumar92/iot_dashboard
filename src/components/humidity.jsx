@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Card, CardContent, Grid, Typography,Avatar} from '@material-ui/core';
-import MoneyIcon from '@material-ui/icons/Money';
-import { makeStyles } from '@material-ui/styles';
-import humidity from './images/humidity.jpg';
+import React, { Component } from "react";
+import { Card, CardContent, Grid, Typography, Avatar } from "@material-ui/core";
+import MoneyIcon from "@material-ui/icons/Money";
+import { makeStyles } from "@material-ui/styles";
+import humidity from "./images/humidity.jpg";
 
 
 class Humidity extends Component {
