@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import {Line} from 'react-chartjs-2';
-import Chart from 'chart.js';
-import lo from 'lodash';
+import React, { Component } from "react";
+import { Line } from "react-chartjs-2";
+import Chart from "chart.js";
+import lo from "lodash";
 //var Chart = require('chart.js');
 
-import axios from 'axios';
-import Button from "components/CustomButtons/Button.js";
+import axios from "axios";
+import Button from "../CustomButtons/Button.js";
 
-import {HUMIDITY_WEEK, HUMIDITY_LAST24} from "components/Constant/constants.jsx";
+import { HUMIDITY_WEEK, HUMIDITY_LAST24 } from "../Constant/constants.jsx";
 var serverUrl = null;
-const http = axios.create({baseUrl: serverUrl,});
+const http = axios.create({ baseUrl: serverUrl });
 
 const styles = {
     fontFamily: 'sans-serif',
