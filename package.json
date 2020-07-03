@@ -43,7 +43,6 @@
   "bugs": {
     "url": "https://github.com/meghavkumar92/iot_dashboard.git/issues"
   },
-  "homepage": "https://github.com/meghavkumar92/iot_dashboard.git/#/dashboard",
   "optionalDependencies": {},
   "devDependencies": {
     "eslint-config-prettier": "6.0.0",

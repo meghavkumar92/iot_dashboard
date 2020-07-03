@@ -12,7 +12,8 @@ body {
   margin-bottom: 20px;
 }
 .tim-white-buttons {
-  background-color: #777777;
+  /* background-color: #777777; */
+  background-color:white
 }
 .title {
   margin-top: 30px;
